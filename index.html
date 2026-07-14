@@ -129,9 +129,22 @@
     .sub-item.active .sub-header i { transform: rotate(45deg); color: var(--secondary); }
     .sub-detail { max-height: 0; opacity: 0; overflow: hidden; transition: 0.5s ease; color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; }
     .sub-item.active .sub-detail { max-height: 1000px; opacity: 1; padding-top: 18px; }
-    .sub-detail p { margin-bottom: 6px; }
+    .sub-detail p { margin-bottom: 10px; padding-left: 14px; border-left: 2px solid rgba(255,255,255,0.1); }
     .sub-detail p:last-child { margin-bottom: 0; }
     .sub-detail strong { color: var(--text); }
+    .sub-detail .date { color: var(--tertiary); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; display: block; letter-spacing: 0.5px; margin-bottom: 2px; }
+
+    /* Statische Sub-Items (kein Klick / kein Aufklappen), z.B. Hobbys */
+    .sub-item-static {
+      background: rgba(255,255,255,0.03);
+      border-radius: 25px;
+      margin-bottom: 15px;
+      padding: 25px;
+      border: 1px solid transparent;
+      cursor: default;
+    }
+    .sub-item-static:last-child { margin-bottom: 0; }
+    .sub-item-static .sub-header { cursor: default; font-size: 1.2rem; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
 
     /* DETAILS */
     .detail-row { margin-bottom: 14px; font-size: 1.2rem; }
@@ -224,10 +237,10 @@
       </div>
       <div class="card-content">
         <div class="detail-row"><strong>Name</strong> Edi Wildisen</div>
-        <div class="detail-row"><strong>Geburtsdatum</strong> 20. Juni 2011</div>
+        <div class="detail-row"><strong>Geburtsdatum</strong> 20. Juni 2011 in Uster ZH</div>
         <div class="detail-row"><strong>Location</strong> Haldenstrasse 10, 8315 Lindau</div>
         <div class="detail-row"><strong>Nationalität</strong> Schweiz</div>
-        <div class="detail-row"><strong>Kontakt</strong> edi.wildisen@gmail.com // 078 312 23 35</div>
+        <div class="detail-row"><strong>Kontakt</strong> edi.wildisen@gmail.com // 079 312 23 35</div>
          <div class="detail-row"><strong>Mutter</strong> Barbara Wildisen (Sekretärin)</div>
          <div class="detail-row"><strong>Vater</strong> Martin Wildisen (Schreiner)</div>
          <div class="detail-row"><strong>Geschwister</strong> Leo (17)  Pius (13)</div>
@@ -258,23 +271,33 @@
     <div class="info-side">
       <i class="fa-solid fa-chevron-down expand-hint"></i>
       <h2><i class="fa-solid fa-briefcase"></i>Berufserfahrung / Schnupperlehren</h2>
-      <p>Schnupperlehren und Besichtigungen.</p>
+      <p>Schnupperlehren, Besichtigungen und Erlebnistage.</p>
       <div class="card-content" onclick="event.stopPropagation()">
 
         <div class="sub-item" onclick="toggleSubItem(this)">
           <div class="sub-header"><span>Informatik (IT)</span><i class="fa-solid fa-plus"></i></div>
           <div class="sub-detail">
-            <p><strong>Cistec AG:</strong> Informatiker Applikationsentwicklung (Okt 2025)</p>
-            <p><strong>Swisscom:</strong> Informatiker Applikationsentwicklung (Dez 2025)</p>
-            <p><strong>Ergon AG:</strong> Berufsbesichtigung (Jan 2026)</p>
+            <p><span class="date">07.10.2025</span><strong>Cistec AG, Zürich:</strong> Informatiker Applikationsentwicklung</p>
+            <p><span class="date">05.12.2025</span><strong>Swisscom AG:</strong> Informatiker Applikationsentwicklung</p>
+            <p><span class="date">14.01.2026</span><strong>Ergon AG, Zürich:</strong> Informatiker Applikationsentwicklung (Berufsbesichtigung)</p>
+            <p><span class="date">19.–20.03.2026</span><strong>Swisscom AG:</strong> Digital Dive, Informatikberufe</p>
+            <p><span class="date">06.05.2026</span><strong>ZKB:</strong> Schnupperparcours</p>
+            <p><span class="date">22.06.2026</span><strong>Swisscom AG:</strong> Erlebnistag</p>
           </div>
         </div>
 
         <div class="sub-item" onclick="toggleSubItem(this)">
           <div class="sub-header"><span>Handwerk & Gastro</span><i class="fa-solid fa-plus"></i></div>
           <div class="sub-detail">
-            <p><strong>Takacs+Partner AG:</strong> Schnupperlehre als Schreiner (Dez 2025)</p>
-            <p><strong>Sonnweid AG:</strong> Berufsbesichtigung als Koch (Jan 2026)</p>
+            <p><span class="date">10.–12.12.2025</span><strong>Takacs+Partner AG, Russikon:</strong> Schnupperlehre als Schreiner</p>
+            <p><span class="date">20.01.2026</span><strong>Sonnweid AG, Wetzikon:</strong> Koch (Berufsbesichtigung)</p>
+          </div>
+        </div>
+
+        <div class="sub-item" onclick="toggleSubItem(this)">
+          <div class="sub-header"><span>Medien & Veranstaltung</span><i class="fa-solid fa-plus"></i></div>
+          <div class="sub-detail">
+            <p><span class="date">24.06.2026</span><strong>SRF:</strong> Veranstaltungsfachmann</p>
           </div>
         </div>
 
@@ -314,8 +337,8 @@
       <p>Was ich gerne mache, wenn ich nicht am PC sitze.</p>
 
       <div class="card-content">
-        <div class="sub-item" style="cursor: default;">
-          <div class="sub-header" style="cursor: default;">Sport & Action</div>
+        <div class="sub-item-static">
+          <div class="sub-header">Sport & Action</div>
           <div class="tag-cloud">
             <span class="tag-static">Leichtathletik</span>
             <span class="tag-static">Turnverein</span>
@@ -324,8 +347,8 @@
           </div>
         </div>
 
-        <div class="sub-item" style="cursor: default;">
-          <div class="sub-header" style="cursor: default;">Neben dem Sport</div>
+        <div class="sub-item-static">
+          <div class="sub-header">Neben dem Sport</div>
           <div class="tag-cloud">
             <span class="tag-static">Gaming</span>
             <span class="tag-static">Programmieren</span>
